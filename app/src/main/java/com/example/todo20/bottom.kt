@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
+import com.example.todo20.data.word
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_bottom.*
 
 class bottom : BottomSheetDialogFragment() {
-     private val sharedViewModel: viewmodel by activityViewModels()
+     //private val sm: viewmodel by activityViewModels()
+    lateinit var vm:viewmodel
     override  fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,11 +23,11 @@ class bottom : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+      vm=ViewModelProvider(this).get(viewmodel::class.java)
 
         mainbtn.setOnClickListener {
-           sharedViewModel.work.value=input.text.toString()
-
+           //sm.work.value=input.text.toString()
+          vm.additem(word(0,input.text.toString()))
 
             input.text?.clear()
 

@@ -4,28 +4,26 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
+   lateinit var vm:viewmodel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+           vm=ViewModelProvider(this).get(viewmodel::class.java)
+           vm.allwords.observe(this,  {
 
-        val sharedViewModel: viewmodel by viewModels()
 
-           sharedViewModel.work.observe(this, Observer {
-
-               sharedViewModel.words.add(it.toString())
-               recycler.adapter = todoadapter(sharedViewModel.words)
+               recycler.adapter = todoadapter(it)
 
            })
-        recycler.adapter = todoadapter(sharedViewModel.words)
+
 
 
         recycler.setHasFixedSize(true)
@@ -34,10 +32,6 @@ class MainActivity : AppCompatActivity() {
 
 
         add.setOnClickListener{
-            recycler.adapter = todoadapter(sharedViewModel.words)
-
-
-
             bottomsheet.show(supportFragmentManager,"ro")
 
         }
