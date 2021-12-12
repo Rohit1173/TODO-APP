@@ -29,7 +29,7 @@ class edit(myid:Int,myword:String) : DialogFragment() {
         editword.setText(newword)
         val newsave:Button =v.findViewById(R.id.renamesave)
         newsave.setOnClickListener {
-            vm.updateword(word(newid,editword.text.toString()))
+            vm.updateword(word(newid,editword.text.toString().trim()))
             dismiss()
         }
 

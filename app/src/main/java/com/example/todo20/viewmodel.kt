@@ -10,8 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class viewmodel(application: Application) :AndroidViewModel(application){
-    //var words: MutableList<String> = mutableListOf()
-    //var work:MutableLiveData<String> = MutableLiveData()
+
     private val  myrepo:repository
     val allwords : LiveData<MutableList<word>>
     init {

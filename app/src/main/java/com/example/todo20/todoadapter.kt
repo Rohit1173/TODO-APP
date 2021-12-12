@@ -4,9 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo20.data.word
 
@@ -29,13 +27,9 @@ class todoadapter(private var items: MutableList<word>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val fm : FragmentManager = (holder.context as AppCompatActivity).supportFragmentManager
         val item = items[position]
         holder.txt.text = item.work
-        holder.card.setOnClickListener {
-            val mydialog =dialog(item.id,item.work)
-            mydialog.show(fm,"view")
-        }
+
     }
     override fun getItemCount(): Int {
         return items.size

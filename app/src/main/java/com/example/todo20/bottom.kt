@@ -10,13 +10,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_bottom.*
 
 class bottom : BottomSheetDialogFragment() {
-     //private val sm: viewmodel by activityViewModels()
     lateinit var vm:viewmodel
     override  fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_bottom, container, false)
     }
 
@@ -26,15 +25,9 @@ class bottom : BottomSheetDialogFragment() {
       vm=ViewModelProvider(this).get(viewmodel::class.java)
 
         mainbtn.setOnClickListener {
-           //sm.work.value=input.text.toString()
-          vm.additem(word(0,input.text.toString()))
-
+          vm.additem(word(0,input.text.toString().trim()))
             input.text?.clear()
-
-
             dismiss()
-
-
         }
     }
 
