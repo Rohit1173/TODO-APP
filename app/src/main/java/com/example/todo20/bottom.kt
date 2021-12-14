@@ -4,19 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import com.example.todo20.data.word
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.fragment_bottom.*
+
 
 class bottom : BottomSheetDialogFragment() {
     lateinit var vm:viewmodel
+    lateinit var mainbtn:Button
+    lateinit var input:EditText
     override  fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val v= inflater.inflate(R.layout.fragment_bottom, container, false )
+        mainbtn= v.findViewById(R.id.mainbtn)
+        input=v.findViewById(R.id.input)
 
-        return inflater.inflate(R.layout.fragment_bottom, container, false)
+
+        return v
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
