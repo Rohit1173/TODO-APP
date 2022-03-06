@@ -31,12 +31,12 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         add=findViewById(R.id.add)
            vm=ViewModelProvider(this).get(viewmodel::class.java)
-           vm.allwords.observe(this,  {
-                 list=it
-                myadapter= todoadapter(list!!)
+           vm.allwords.observe(this) {
+               list = it
+               myadapter = todoadapter(list!!)
                recycler.adapter = myadapter
 
-           })
+           }
 
 
 
