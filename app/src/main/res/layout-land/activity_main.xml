@@ -8,7 +8,6 @@
     >
 
     <ImageView
-        android:id="@+id/land_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,13 +18,12 @@
         android:scaleY="3"
         />
     <TextView
-        android:id="@+id/land_txt"
         android:layout_width="140dp"
         android:layout_height="300dp"
         android:text="WORKS TO DO"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="@id/land_img"
+        app:layout_constraintRight_toLeftOf="@+id/recycler"
         android:fontFamily="@font/spot_normal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
